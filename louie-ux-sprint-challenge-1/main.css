@@ -1,0 +1,131 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  background:
+		linear-gradient(rgba(248, 250, 252,), rgba(248, 250, 252));
+  font-family: Lato;
+}
+
+.form {
+  margin: auto;
+  width: 500px;
+  margin-top: 100px;
+  text-align: center;
+}
+
+.form input {
+  border-radius: 3px;
+  padding: 5px;
+  font-size: 13px;
+}
+
+.form input:not(.action-button) {
+  border: 2px solid #DAE1E7;
+  display: block;
+  margin: 20px auto;
+}
+
+.action-button {
+  margin: 10px auto;
+  width: 85px;
+  height: 30px;
+  background-color: #3182CE;
+  border: none;
+  color: white;
+  outline: none;
+  cursor: pointer;
+}
+
+.fs-title {
+  text-transform: uppercase;
+  font-size: 1.3em;
+  font-weight: lighter;
+}
+
+.fs-subtitle {
+  font-size: 1.2em;
+  font-weight: lighter;
+}
+
+.form fieldset {
+	background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 4px 4px 0px rgba(135, 149, 160, 0.50);
+	padding: 20px 30px;
+	box-sizing: border-box;
+	width: 80%;
+	margin: 0 auto;
+	/*stacking fieldsets above each other*/
+	position: relative;
+}
+
+.form fieldset:not(:first-of-type) {
+  display: none;
+}
+
+.progressBar {
+  counter-reset: step;
+  margin-bottom: 30px
+}
+
+.progressBar li {
+	list-style-type: none;
+	color: #8795A1;
+	text-transform: uppercase;
+	font-size: 10px;
+	width: 33.33%;
+  margin-bottom: 30px;
+	float: left;
+	position: relative;
+  text-align: center;
+}
+
+.progressBar li::before {
+  content: counter(step);
+  counter-increment: step;
+  display: block;
+  margin: 0 auto 5px auto;
+  background-color: #8795A1;
+	line-height: 15px;
+  width: 15px;
+  height: 15px;
+  color: white;
+  font-size: 2em;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+/*progressbar connectors*/
+.progressBar li:after {
+	content: '';
+	width: 100%;
+	height: 2px;
+	background: white;
+	position: absolute;
+	left: -50%;
+	top: 9px;
+	z-index: -1;
+}
+
+.progressBar li:first-child:after {
+	content: none; 
+}
+
+.progressBar li:before,  .progressBar li:after{
+  -webkit-transition:background 1s;
+  -moz-transition:background 1s;
+  -o-transition:background 1s;
+  transition:background 1s
+}
+
+.progressBar li.active:before,  .progressBar li.active:after{
+	background: #3182CE;
+	color: white;
+}
